@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import "./index.css";
 import ListInput from "./components/ListInput";
 import Item from "./components/Item";
 import { nanoid } from "nanoid";
@@ -16,10 +15,14 @@ function App() {
 
   const handleSubmit = (value, e) => {
     e.preventDefault();
-    return setList((oldList) => [
-      ...oldList,
-      { id: nanoid(), value: value, isEditing: false },
-    ]);
+    if (value) {
+      return setList((oldList) => [
+        ...oldList,
+        { id: nanoid(), value: value, isEditing: false },
+      ]);
+    } else {
+      return alert("You need to enter something");
+    }
   };
 
   const handleDelete = (e) => {
@@ -82,7 +85,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>TODO app in Ract</h1>
+      <h1>TODO app in <span className="react">Ract</span> + <span className="vite">Vite</span></h1>
       <ListInput handleSubmit={handleSubmit} />
       <ul>
         {todoList}

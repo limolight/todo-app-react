@@ -1,6 +1,7 @@
 export default function Item(props) {
   return (
     <li id={props.id}>
+      <div className="padding-div">&#62;</div>
       {props.isEditing ? (
         <input
           className="edit-input"
@@ -11,16 +12,15 @@ export default function Item(props) {
           autoFocus
         />
       ) : (
-        <span title="Double Click to Edit" onDoubleClick={(e) => props.handleDoubleClick(e)} >
+        <span className="list-item" title="Double Click to Edit" onDoubleClick={(e) => props.handleDoubleClick(e)} >
           {props.value}
         </span>
       )}
-      <button
-        className="btn-del"
+      <div
+        className="btn btn-del"
         onClick={(event) => props.handleDelete(event)}
-      >
-        X
-      </button>
+      >X
+      </div>
     </li>
   );
 }
