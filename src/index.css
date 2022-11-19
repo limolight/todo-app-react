@@ -109,7 +109,9 @@ li {
 }
 
 .edit-input:focus {
-  outline: #535bf2;
+  outline: none;
+  color: #535bf2;
+  caret-color: #535bf2;
 }
 
 .list-item {
