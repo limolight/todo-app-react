@@ -95,8 +95,8 @@ li {
 
 .padding-div {
   display: flex;
-  margin-right: .4em;
-  padding: .435em .35em;
+  margin-right: 0.4em;
+  padding: 0.435em 0.35em;
   color: #f7df1e;
   background-color: #1a1a1a;
 }
@@ -141,10 +141,10 @@ li {
 
 .btn-del {
   color: red;
-  padding: .435em;
+  padding: 0.435em;
   border-radius: 0;
   margin-left: auto;
-  transition: border .25s;
+  transition: border 0.25s;
 }
 
 .btn-del:hover {

@@ -35,37 +35,42 @@ function App() {
   };
 
   const handleEdit = (e) => {
-    setList(oldList => {return (oldList.map(item => {
-      if(item.id === e.target.parentNode.id){
-        return ({...item, value: e.target.value})
-      } else {
-        return item;
-      }
-    }))})
+    setList((oldList) => {
+      return oldList.map((item) => {
+        if (item.id === e.target.parentNode.id) {
+          return { ...item, value: e.target.value };
+        } else {
+          return item;
+        }
+      });
+    });
   };
 
   const handleDoubleClick = (e) => {
-    const id = e.target.parentNode.id
-    setList(oldList => {
-      return (oldList.map(item => {
-      if(item.id === id){
-        return ({...item, isEditing: true})
-      }else {
-        return item;
-      }
-    }))
-  })}
+    const id = e.target.parentNode.id;
+    setList((oldList) => {
+      return oldList.map((item) => {
+        if (item.id === id) {
+          return { ...item, isEditing: true };
+        } else {
+          return item;
+        }
+      });
+    });
+  };
 
   const handleBlur = (e) => {
-    const id = e.target.parentNode.id
-    setList(oldList => {return (oldList.map(item => {
-      if(item.id === id){
-        return ({...item, isEditing: false,})
-      } else {
-        return item;
-      }
-    }))})
-  }
+    const id = e.target.parentNode.id;
+    setList((oldList) => {
+      return oldList.map((item) => {
+        if (item.id === id) {
+          return { ...item, isEditing: false };
+        } else {
+          return item;
+        }
+      });
+    });
+  };
   const todoList = list.map((item) => {
     const id = item.id;
     const value = item.value;
@@ -85,11 +90,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>TODO app in <span className="react">Ract</span> + <span className="vite">Vite</span></h1>
+      <h1>
+        TODO app in <span className="react">Ract</span> +{" "}
+        <span className="vite">Vite</span>
+      </h1>
       <ListInput handleSubmit={handleSubmit} />
-      <ul>
-        {todoList}
-      </ul>
+      <ul>{todoList}</ul>
     </div>
   );
 }

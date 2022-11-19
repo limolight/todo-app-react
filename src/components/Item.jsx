@@ -12,14 +12,19 @@ export default function Item(props) {
           autoFocus
         />
       ) : (
-        <span className="list-item" title="Double Click to Edit" onDoubleClick={(e) => props.handleDoubleClick(e)} >
+        <span
+          className="list-item"
+          title="Double Click to Edit"
+          onDoubleClick={(e) => props.handleDoubleClick(e)}
+        >
           {props.value}
         </span>
       )}
       <div
         className="btn btn-del"
         onClick={(event) => props.handleDelete(event)}
-      >X
+      >
+        X
       </div>
     </li>
   );
