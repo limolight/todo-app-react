@@ -1,31 +1,33 @@
-export default function Item(props) {
+export default function Item({
+  item: { id, isEditing, value },
+  handleDelete,
+  handleDoubleClickOnBlur,
+  handleEdit,
+}) {
   return (
-    <li id={props.id}>
+    <li id={id}>
       <div className="padding-div">&#62;</div>
-      {props.isEditing ? (
+      {isEditing ? (
         <input
           className="edit-input"
           type="text"
-          value={props.value}
-          onBlur={(e) => props.handleBlur(e)}
-          onChange={(e) => props.handleEdit(e)}
+          value={value}
+          onBlur={(e) => handleDoubleClickOnBlur(e, true)}
+          onChange={(e) => handleEdit(e)}
           autoFocus
         />
       ) : (
         <span
           className="list-item"
           title="Double Click to Edit"
-          onDoubleClick={(e) => props.handleDoubleClick(e)}
+          onDoubleClick={(e) => handleDoubleClickOnBlur(e, false)}
         >
-          {props.value}
+          {value}
         </span>
       )}
-      <div
-        className="btn btn-del"
-        onClick={(event) => props.handleDelete(event)}
-      >
+      <button className="btn btn-del" onClick={(event) => handleDelete(event)}>
         X
-      </div>
+      </button>
     </li>
   );
 }
